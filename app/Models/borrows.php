@@ -25,7 +25,7 @@ class borrows extends Model
     // 4. คอลัมน์ที่อนุญาตให้ Mass Assignment ได้
     protected $fillable = [
         'Borrow_date',
-        'status_',
+        'status_',  // 0 = ยืม, 1 = คืน
         'User_id',
         'Book_id',
     ];

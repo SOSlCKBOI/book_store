@@ -15,6 +15,7 @@ class HomeController extends Controller
     {
         // คำสั่งนี้จะค้นหาไฟล์ที่ชื่อ 'Home.blade.php'
         // โดยไม่ต้องใส่ .blade.php
-        return view('Home');
+        return view('home');
+
     }
 }
