@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+/**
+ * Class License
+ * @package App\Models
+ *
+ * Represents the 'licenses' table for storing license information.
+ */
+class licenses extends Model
+{
+    // 1. ตารางที่เชื่อมโยง (Table Name)
+    protected $table = 'licenses'; 
+
+    // 2. Primary Key
+    // กำหนดให้ Eloquent รู้ว่า Primary Key คือ 'License_id'
+    protected $primaryKey = 'License_id'; 
+
+    // 3. ปิดการใช้งาน Timestamps
+    // ตาราง SQL ไม่มีคอลัมน์ created_at และ updated_at
+    public $timestamps = false; 
+    
+    // 4. คอลัมน์ที่อนุญาตให้ Mass Assignment ได้
+    protected $fillable = [
+        'Owner_name',
+    ];
+
+    // 5. การกำหนดชนิดข้อมูล (Casts)
+    protected $casts = [
+        //
+    ];
+
+    public function books(): HasMany
+    {
+        // Province has many Supprovices, using 'Provice_id' as the FK 
+        // in the 'supprovices' table.
+        return $this->hasMany(books::class);
+    }
+}
